@@ -1,20 +1,45 @@
-// RingBuffer.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+#include "ArrayRingBuffer.cpp"
+#include "LinkedListRingBuffer.cpp"
 
-#include <iostream>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    LinkedListRingBuffer<int> llrb = LinkedListRingBuffer<int>();
+
+    llrb.EnQueue(25);
+    llrb.EnQueue(16);
+    llrb.EnQueue(20);
+    llrb.EnQueue(8);
+    llrb.EnQueue(12);
+    llrb.DeQueue();
+
+    llrb.OutputInfo();
+
+    ArrayRingBuffer<int> rb = ArrayRingBuffer<int>(3);
+
+    rb.EnQueue(12);
+    rb.EnQueue(14);
+    rb.EnQueue(15);
+    rb.DeQueue();
+    rb.EnQueue(16);
+
+    rb.OutputInfo();
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+/*
+Описание решения:
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+В данном решении было реализованно два типа циклических буферов.
+Первое решение представляет собой использование массива со статическим размером.
+Второе решение представляет собой использование одностороннего линкед листа.
+
+Плюсы минусы:
+Плюсом первой реализации является то что элемент в буффере занимает sizeof(T).
+Минусом реализации по сравнени со второй является невозможность расширения размера массива после инициализации
+(если бы даже был реализован resize массива, работало бы это хуже, так как память увеличивалась бы в два раза а не на один элемент)
+
+Плюсом второй реализации является динамическая размерность, размер раширяется на каждый добавляемый элемент
+(так же и при dequeue элементы уменьшаются соотвественно).
+Минусом второй реализации является увеличением размера элемента в буффере(sizeof(T) + 4 байта(или 8 байт в зависимости от разрядности системы)).
+
+*/
