@@ -116,6 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\C++\Wargaming_Test%28intern%29\Test_exercise\Test\RingBuffer;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,7 +140,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ArrayRingBuffer.cpp" />
+    <ClCompile Include="LinkedListRingBuffer.cpp" />
     <ClCompile Include="RingBuffer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ArrayRingBuffer.h" />
+    <ClInclude Include="LinkedListRingBuffer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
