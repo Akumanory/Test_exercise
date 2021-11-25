@@ -1,5 +1,5 @@
-#include "ArrayRingBuffer.cpp"
-#include "LinkedListRingBuffer.cpp"
+#include "ArrayRingBuffer.h"
+#include "LinkedListRingBuffer.h"
 
 
 int main()

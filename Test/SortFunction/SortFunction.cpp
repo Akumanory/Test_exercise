@@ -1,20 +1,37 @@
-// SortFunction.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+
+#include "IntroSort.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	 int arr[17] = {7, 12, 65, 23, 1, 4, 8, 13, 0, 10, 77, 67, 128, 6, 99, 4535, 400};
+	 int size = sizeof(arr) / sizeof(arr[0]);
+
+	  for (auto &&i : arr)
+	  {
+	      std::cout << i << " ";
+	  }
+	  std::cout << std::endl;
+
+	  IntroSort::Sort(arr, arr + size, [](int a, int b) { return a < b; });
+
+	  for (auto&& i : arr)
+	  {
+		  std::cout << i << " ";
+	  }
+	  std::cout << std::endl;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+/*
+Описание решения:
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+Каждый алгоритм сортировки имеет свои плюсы и минусы. Т.е. хорошо работают на различных входных наборах.
+Для этого задания было приянято реализовать комбинацию из нескольких сортировок под  названием IntroSort.
+Intro sort работает как: Начинается сортировка с применения алгоритма Quicsort, если глубина рекурсии доходит до
+значения 2 * log(size of array), далее сортировка переключается на Insertionsort если количество значений в массиве меньше 16.
+Благодаря такому решению представляется возможность избежать худшый случай алгоритма Quicksort который является O(n^2) на O(nlog(n)).
+Так же решается проблема Quicksort большого постоянного коэффициента на маленьком наборе значений.
+
+Благодаря обьединению нескольких алгоритмов сортировки появилась возможность избежать слабых мест и подчеркнуть сильные стороны ипользуемых алгоритмов.
+
+*/
