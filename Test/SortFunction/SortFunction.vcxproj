@@ -139,7 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="IntroSort.cpp" />
     <ClCompile Include="SortFunction.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IntroSort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
